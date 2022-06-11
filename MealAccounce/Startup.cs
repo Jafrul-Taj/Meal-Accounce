@@ -1,4 +1,8 @@
+using MealAccounce.IRepositories;
+using MealAccounce.IServices;
 using MealAccounce.Models;
+using MealAccounce.Repositories;
+using MealAccounce.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +31,9 @@ namespace MealAccounce
         {
             services.AddControllersWithViews();
             services.AddDbContext<MealContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+
+            services.AddSingleton<IMealRepository, MealRepository>();
+            services.AddSingleton<IMealService, MealService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

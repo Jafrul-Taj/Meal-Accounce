@@ -7078,11 +7078,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\work\\MealAccounce\\MealAccounce\\MealAccounce.csproj",
+      "projectUniqueName": "F:\\Giga Tech Interview\\Meal-Accounce\\MealAccounce\\MealAccounce.csproj",
       "projectName": "MealAccounce",
-      "projectPath": "F:\\work\\MealAccounce\\MealAccounce\\MealAccounce.csproj",
+      "projectPath": "F:\\Giga Tech Interview\\Meal-Accounce\\MealAccounce\\MealAccounce.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "F:\\work\\MealAccounce\\MealAccounce\\obj\\",
+      "outputPath": "F:\\Giga Tech Interview\\Meal-Accounce\\MealAccounce\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

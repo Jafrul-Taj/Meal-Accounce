@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Kf8+B5SkFZ3ToEBflJAv791CXbNh3ExhTxpsSr0OqJqJLeGTzvcAO0PJYacNlSjnXJcRE0hkPD+QXq7qIxi6pw==",
+  "dgSpecHash": "qMx44iyXvHGBO1zVu7uWVTQXBqGAlArAlyI75odYDc6TWvQxVR2c8GKC3h83OktWxrgwjiNYccSjzOk9ddgTWQ==",
   "success": true,
-  "projectFilePath": "F:\\work\\MealAccounce\\MealAccounce\\MealAccounce.csproj",
+  "projectFilePath": "F:\\Giga Tech Interview\\Meal-Accounce\\MealAccounce\\MealAccounce.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

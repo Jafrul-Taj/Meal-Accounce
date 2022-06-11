@@ -1,4 +1,5 @@
-﻿using MealAccounce.Models;
+﻿using MealAccounce.IServices;
+using MealAccounce.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -8,17 +9,17 @@ namespace MealAccounce.Controllers
 {
     public class MealController : Controller
     {
-        private MealContext _context;
+        private IMealService _mealService;
 
-        public MealController(MealContext context)
+        public MealController(IMealService mealService)
         {
-            _context = context;
+            _mealService = mealService;
         }
         public async Task<IActionResult> Index()
         {
             return View(await _context.Meals.ToListAsync());
         }
-        public async Task<IActionResult> AddOrEdit(int id = 0)
+        public  IActionResult AddOrEdit(int id = 0)
         {
             if (id == 0)
             {
@@ -26,7 +27,7 @@ namespace MealAccounce.Controllers
             }
             else
             {
-                var meal = await _context.Meals.FindAsync(id);
+                var meal = _mealService.GetMealById(id);
                 // meal.mealDate =(Date) meal.mealDate.Date;
                 return View(meal);
             }
