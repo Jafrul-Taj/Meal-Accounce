@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MealAccounce.Models.Employee>
+@{
+    ViewBag.Title = "Employee List";
+}
+
+<h2>Meal List</h2>
+
+<p>
+    <a asp-action="AddOrEdit" class="btn btn-success">
+        Add An Employee
+    </a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Designation)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.mealDate)*@
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var iteam in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => iteam.EmployeeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => iteam.EmployeeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => iteam.Designation)
+                </td>
+              
+                <td>
+                    <a asp-action="AddOrEdit" class="btn btn-primary" asp-route-id="@iteam.Id">Edit</a>
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@iteam.Id" onclick="return confirm('Are you sure to delete this record?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

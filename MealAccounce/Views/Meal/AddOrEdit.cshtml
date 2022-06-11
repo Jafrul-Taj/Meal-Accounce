@@ -1,0 +1,132 @@
+﻿@model MealAccounce.Models.Meal
+@{
+    ViewData["Title"] = "Create Or Edit";
+}
+<h4>Meal Details</h4>
+<hr />
+<link href="~/css/bootstrap-datepicker-downloaded.css" rel="stylesheet" />
+@*<script src="~/js/bootstrap-datepicker-downloaded.js"></script>*@
+
+@*<div class="row justify-content-center mt-4">
+        <div class="card col-11">
+            <div class="card-body">
+                <h1 class="text-center mb-5" style="color:cadetblue">Meal Details</h1>
+                <p class="text-muted"></p>
+                <div>
+                    @using (Html.BeginForm("AddOrEdit", "Meal", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, true, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        <div class="form-group row mb-3" style="display: flex; justify-content: center">
+                            <label class="col-sm-3 col-lg-2 col-md-3  col-form-label">Name</label>
+                            <div class="col-sm-3 col-lg-3 col-md-3">
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", name = "code", type = "text", @required = "req" })
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3" style="display: flex; justify-content: center">
+                            <label class="col-sm-3 col-lg-2 col-md-3  col-form-label">Tota lMember</label>
+                            <div class="col-sm-3 col-lg-3 col-md-3">
+                                @Html.TextBoxFor(m => m.TotalMemberOfTheMeal, new { @class = "form-control", name = "code", type = "text", @required = "req" })
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3" style="display: flex; justify-content: center">
+                            <label class="col-sm-3 col-lg-2 col-md-3  col-form-label">Payment By</label>
+                            <div class="col-sm-3 col-lg-3 col-md-3">
+                                @Html.TextBoxFor(m => m.PaymentBy, new { @class = "form-control", name = "code", type = "text", @required = "req" })
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3" style="display: flex; justify-content: center">
+                            <label class="col-sm-3 col-lg-2 col-md-3  col-form-label">Total PayMent</label>
+                            <div class="col-sm-3 col-lg-3 col-md-3">
+                                @Html.TextBoxFor(m => m.TotalPayMent, new { @class = "form-control", name = "code", type = "text", @required = "req" })
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3" style="display: flex; justify-content: center">
+                            <label class="col-sm-3 col-lg-2 col-md-3  col-form-label">Meal Date</label>
+                            <div class="col-sm-3 col-lg-3 col-md-3">
+                                @Html.TextBoxFor(m => m.mealDate, new { @id = "SelectedDate", @class = "form-control", name = "code", type = "text", @required = "req" })
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>*@
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddOrEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label asp-for="TotalMemberOfTheMeal" class="control-label"></label>
+                    <input asp-for="TotalMemberOfTheMeal" class="form-control" value="@Model.TotalMemberOfTheMeal.ToString()" />
+                    <span asp-validation-for="TotalMemberOfTheMeal" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="PaymentBy" class="control-label"></label>
+                    <input asp-for="PaymentBy" class="form-control" />
+                    <span asp-validation-for="PaymentBy" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label asp-for="TotalPayMent" class="control-label"></label>
+                    <input asp-for="TotalPayMent" class="form-control" />
+                    <span asp-validation-for="TotalPayMent" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="mealDate" class="control-label"></label>
+                    @*<input asp-for="mealDate"  class="datepicker form-control" />*@
+                    <input type="text" id="mealDate" name="mealDate" class="datepicker form-control" value="@Model.mealDate.ToString("dd/MM/yyyy")" />
+                    <span asp-validation-for="mealDate" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+                </div>
+
+                <div class="form-group col-md-6">
+                    <a asp-action="Index" class="btn btn-info btn-block">Back to List</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('.datepicker').datepicker();
+        });
+    </script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
+@*<script type="text/javascript">
+        $(function () {
+            $('#SelectedDate').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                format: "dd/mm/yyyy",
+                language: "tr"
+            });
+        });
+        dd/MM/yyyy
+    datepicker reference
+    https://www.youtube.com/watch?v=aF377TRMHG4
+
+    </script>*@

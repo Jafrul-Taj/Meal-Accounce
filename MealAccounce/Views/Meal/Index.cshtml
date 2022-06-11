@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MealAccounce.Models.Meal>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Meal List</h2>
+
+<p>
+    <a asp-action="AddOrEdit" class="btn btn-success">
+        Create A Meal
+    </a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalMemberOfTheMeal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPayMent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mealDate)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.mealDate)*@
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var iteam in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => iteam.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => iteam.TotalMemberOfTheMeal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => iteam.PaymentBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => iteam.TotalPayMent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => iteam.mealDate)
+                </td>
+                <td>
+                    <a asp-action="AddOrEdit" class="btn btn-primary" asp-route-id="@iteam.Id">Edit</a>
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@iteam.Id" onclick="return confirm('Are you sure to delete this record?')" >Delete</a>
+                    @*<button type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@iteam.Id" onclick="return confirm('Are you sure to delete this record')">Delete</button>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
