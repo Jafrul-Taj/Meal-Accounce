@@ -9,15 +9,17 @@ namespace MealAccounce.Controllers
 {
     public class MealController : Controller
     {
+       
         private IMealService _mealService;
-
+        
         public MealController(IMealService mealService)
         {
             _mealService = mealService;
         }
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Meals.ToListAsync());
+            var a = _mealService.GetMealById(1);
+            return View(_mealService.GetMealById(1));
         }
         public  IActionResult AddOrEdit(int id = 0)
         {
@@ -36,18 +38,18 @@ namespace MealAccounce.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddOrEdit([Bind("Id", "Name", "TotalMemberOfTheMeal", "PaymentBy", "TotalPayMent", "mealDate")] Meal meal)
         {
-            if(ModelState.IsValid)
-            {
-                if (meal.Id == 0)
-                {
-                    _context.Add(meal);
-                }
-                else
-                {
-                    _context.Update(meal);
-                }
-                await _context.SaveChangesAsync();
-            }
+            //if(ModelState.IsValid)
+            //{
+            //    if (meal.Id == 0)
+            //    {
+            //        _context.Add(meal);
+            //    }
+            //    else
+            //    {
+            //        _context.Update(meal);
+            //    }
+            //    await _context.SaveChangesAsync();
+            //}
             return RedirectToAction("Index", "Meal");
         }
 

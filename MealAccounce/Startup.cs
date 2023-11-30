@@ -32,8 +32,8 @@ namespace MealAccounce
             services.AddControllersWithViews();
             services.AddDbContext<MealContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 
-            services.AddSingleton<IMealRepository, MealRepository>();
-            services.AddSingleton<IMealService, MealService>();
+            services.AddTransient<IMealRepository, MealRepository>();
+            services.AddTransient<IMealService, MealService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

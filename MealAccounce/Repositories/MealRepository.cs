@@ -16,7 +16,8 @@ namespace MealAccounce.Repositories
         }
         public Meal GetMealById(int id)
         {
-            return _context.Meals.Find(id);
+            var meal = _context.Meals.Where(x => x.Id == id).FirstOrDefault();
+            return meal;
         }
     }
 }
